@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "author": "Varun Chauhan",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": 0,
+      "left": 0,
+      "attrs": { "env": "micropython-20231227-v1.22.0" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -13.2,
+      "left": -149.8,
+      "attrs": { "color": "yellow" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": 92.4,
+      "left": -149.8,
+      "attrs": { "color": "magenta" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": -22.8,
+      "left": 176.6,
+      "attrs": { "color": "limegreen" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led4",
+      "top": 111.6,
+      "left": 186.2,
+      "attrs": { "color": "blue" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "led1:C", "led2:C", "black", [ "v57.6", "h-9.2", "v48" ] ],
+    [ "led2:C", "esp:CMD", "black", [ "v0" ] ],
+    [ "esp:GND.2", "led3:C", "black", [ "v0" ] ],
+    [ "led3:C", "led4:C", "black", [ "v67.2", "h-18.8", "v67.2" ] ],
+    [ "led3:A", "esp:21", "green", [ "v0" ] ],
+    [ "led4:A", "esp:19", "blue", [ "v19.2", "h-76.8", "v-76.8" ] ],
+    [ "led1:A", "esp:14", "yellow", [ "v9.6", "h96", "v96", "h19.2" ] ],
+    [ "led2:A", "esp:12", "magenta", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
